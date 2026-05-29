@@ -1,0 +1,54 @@
+{
+  "project_info": {
+    "project_number": "141786608883",
+    "project_id": "apolo-6bc39",
+    "storage_bucket": "apolo-6bc39.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:141786608883:android:d41fd7606a326d4a8cb386",
+        "android_client_info": {
+          "package_name": "com.example.apolo"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "141786608883-ts22mn4vi5855je5gct9s6undkeg1874.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.apolo",
+            "certificate_hash": "a14656eaee88ec5f32b8673214615b4ddf8df28c"
+          }
+        },
+        {
+          "client_id": "141786608883-70dpujp881mmr4l2j6u44j3qc3hqqbth.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAwMyFCfWN-SLeeb3cgp25XMcmxXCZ0L9w"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "141786608883-70dpujp881mmr4l2j6u44j3qc3hqqbth.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "141786608883-c44t2fk8gh17jlqeiieqke9564tjv8dj.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.apolo"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
