@@ -4,6 +4,8 @@ import 'package:apolo/shared/ui/auth/sign_in.dart';
 import 'package:apolo/shared/ui/auth/sign_up.dart';
 import 'package:apolo/shared/ui/auth/change_pwd.dart';
 import 'package:apolo/shared/ui/home/home.dart';
+import 'package:apolo/shared/ui/notfound/not_found.dart';
+import 'package:apolo/shared/ui/notifications/notification_details.dart';
 import 'package:apolo/shared/ui/notifications/notifications.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
@@ -34,6 +36,12 @@ class MyApp extends StatelessWidget {
         textTheme: GoogleFonts.notoSansTextTheme(Theme.of(context).textTheme),
       ),
       onReady: () => authController.setInitialRoute(),
+      unknownRoute: GetPage(
+        name: '/notfound',
+        page: () => NotFound(),
+        transition: Transition.leftToRightWithFade,
+        transitionDuration: const Duration(milliseconds: 900),
+      ),
       initialRoute: '/',
       getPages: [
         GetPage(
@@ -69,6 +77,12 @@ class MyApp extends StatelessWidget {
         GetPage(
           name: '/notifications',
           page: () => Notifications(),
+          transition: Transition.leftToRightWithFade,
+          transitionDuration: const Duration(milliseconds: 900),
+        ),
+        GetPage(
+          name: '/notification_details',
+          page: () => NotificationDetails(),
           transition: Transition.leftToRightWithFade,
           transitionDuration: const Duration(milliseconds: 900),
         ),
