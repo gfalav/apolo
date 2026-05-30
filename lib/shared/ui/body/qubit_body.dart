@@ -31,34 +31,26 @@ class QubitBody extends StatelessWidget {
             children: [
               Visibility(
                 visible: appController.devType.value != "Mobile" && showDrawer,
-                child: Container(
-                  color: Theme.of(context).colorScheme.surfaceContainer,
-                  width: 305,
-                  child: QubitMenu(),
-                ),
+                child: SizedBox(width: 305, child: QubitMenu()),
               ),
               Expanded(
-                child: Container(
-                  color: Theme.of(context).colorScheme.surface,
+                child: SizedBox(
+                  //color: Theme.of(context).colorScheme.surface,
                   child: main,
                 ),
               ),
               Visibility(
                 visible:
                     appController.devType.value == "Desktop" && showRightBar,
-                child: Container(
-                  color: Theme.of(context).colorScheme.surfaceContainerHighest,
-                  width: 200,
-                  child: rightWidget,
-                ),
+                child: SizedBox(width: 200, child: rightWidget),
               ),
             ],
           ),
         ),
         Visibility(
           visible: showBottomBar,
-          child: Container(
-            color: Theme.of(context).colorScheme.tertiary,
+          child: SizedBox(
+            //color: Theme.of(context).colorScheme.tertiary,
             height: 48,
             child: bottomWidget,
           ),

@@ -1,5 +1,6 @@
 import 'package:apolo/shared/ui/useraction/user_action.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 class QubitAppbar {
   PreferredSizeWidget appBar(
@@ -24,7 +25,12 @@ class QubitAppbar {
           ? [
               Padding(
                 padding: const EdgeInsets.only(right: 20),
-                child: Icon(Icons.notifications, size: 30),
+                child:  IconButton(
+                  icon: const Icon(Icons.notifications),
+                  onPressed: () {
+                    Get.toNamed('/notifications');
+                  },
+                ),
               ),
               Padding(
                 padding: const EdgeInsets.only(right: 20),
