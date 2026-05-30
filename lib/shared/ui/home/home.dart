@@ -15,8 +15,8 @@ class Home extends StatelessWidget {
       titleAppbar: 'Home',
       showActionsAppbar: true,
       showDrawer: true,
-      showBottomBar: true,
-      showRightBar: true,
+      showBottomBar: false,
+      showRightBar: false,
       rightWidget: null,
       bottomWidget: null,
       main: Obx(
