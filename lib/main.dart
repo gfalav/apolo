@@ -1,4 +1,5 @@
 import 'package:apolo/shared/controllers/auth_controller.dart';
+import 'package:apolo/shared/controllers/notifications_controller.dart';
 import 'package:apolo/shared/ui/auth/reset_pwd.dart';
 import 'package:apolo/shared/ui/auth/sign_in.dart';
 import 'package:apolo/shared/ui/auth/sign_up.dart';
@@ -7,15 +8,25 @@ import 'package:apolo/shared/ui/home/home.dart';
 import 'package:apolo/shared/ui/notfound/not_found.dart';
 import 'package:apolo/shared/ui/notifications/notification_details.dart';
 import 'package:apolo/shared/ui/notifications/notifications.dart';
+import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'firebase_options.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 
+@pragma('vm:entry-point')
+Future<void> _firebaseMessagingBackgroundHandler(RemoteMessage message) async {
+  // Asegúrate de inicializar Firebase aquí si vas a usar sus servicios
+  print("Manejando un mensaje en background: ${message.messageId}");
+}
+
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
+  FirebaseMessaging.onBackgroundMessage(_firebaseMessagingBackgroundHandler);
+  Get.put(NotificationController(), permanent: true);
+
   runApp(const MyApp());
 }
 

@@ -1,3 +1,5 @@
+import 'package:apolo/shared/controllers/notifications_controller.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
@@ -6,6 +8,9 @@ import 'package:google_sign_in/google_sign_in.dart';
 
 class AuthController extends GetxController {
   final _auth = FirebaseAuth.instance;
+  NotificationController notificationController = Get.put(
+    NotificationController(),
+  );
 
   final uid = ''.obs;
   final email = ''.obs;
@@ -86,6 +91,14 @@ class AuthController extends GetxController {
         colorText: Theme.of(Get.context!).colorScheme.primary,
         snackPosition: SnackPosition.BOTTOM,
       );
+      FirebaseFirestore.instance
+          .collection('tokens')
+          .doc(notificationController.token.value)
+          .set({
+            'email': emailController.text,
+            'token': notificationController.token.value,
+            'createdAt': FieldValue.serverTimestamp(),
+          });
     } on FirebaseAuthException catch (e) {
       Get.snackbar(
         'Sign In Error',
